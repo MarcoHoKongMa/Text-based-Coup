@@ -11,11 +11,11 @@ import Cards.Card;
 
 abstract public class Player {
     // >> Class Parameters <<
-    int numCoins;
-    Card card1, card2, fakeCard1, fakeCard2;
-    String name;
-    Boolean isAlive;
-    Boolean isHuman;
+    private int numCoins;
+    private Card card1, card2, fakeCard1, fakeCard2;
+    private String name;
+    private Boolean isAlive;
+    private Boolean isHuman;
 
     // >> Constructor <<
     public Player(Card card1, Card card2, String name){

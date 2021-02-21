@@ -63,7 +63,7 @@ public class Deck {
     }
 
     /**
-     * This methods shuffles the deck using Fisher-Yates shuffle Algorithm.
+     * This adds a card to the deck.
      * @param card Takes in a card and adds it to the deck.
      * @return Nothing.
      */
