@@ -1,8 +1,8 @@
 package Cards;
 import Players.Player;
+import main.Game;
 
 public interface Card {
-    public void use(Player user, Deck deck);
-    public void setName(String name);
+    public void use(Player user, Game game);
     public String toString();
 }

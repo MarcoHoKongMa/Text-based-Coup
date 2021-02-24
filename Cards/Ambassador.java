@@ -8,12 +8,18 @@
 
 package Cards;
 import Players.Player;
+import main.Game;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Ambassador implements Card{
-    private String name = "Ambassador";
+    // >> Class Parameters <<
+    private String name;
 
+    public Ambassador(){
+        this.name = "Ambassador";
+    }
 
     /**
      * This method allows the player to swap 2, or 1 card from his hand with the deck
@@ -22,12 +28,12 @@ public class Ambassador implements Card{
      * @param deck Used to draw 2 cards from the deck.
      * @return Nothing.
      */
-    public void use(Player user, Deck deck){
+    public void use(Player user, Game game){
         // Two cards along with the number of cards the user has alive
         // will be part of the available choices.
         ArrayList<Card> choices = new ArrayList<Card>();
-        choices.add(deck.draw());
-        choices.add(deck.draw());
+        choices.add(game.getDeck().draw());
+        choices.add(game.getDeck().draw());
         int userChoice = 0;
 
         // >> Check to how many cards Player has alive <<
@@ -84,17 +90,9 @@ public class Ambassador implements Card{
 
         // >> Send remaining cards back to the deck <<
         for (int i=choices.size(); i>=0; i--){
-            deck.addCard(choices.get(i));
+            game.getDeck().addCard(choices.get(i));
         }
         choices.clear();
-    }
-
-    /**
-     * A mutator used to change the name of a the card Ambassador.
-     * @return Nothing.
-     */
-    public void setName(String name){
-        this.name=name;
     }
 
     /**
@@ -111,7 +109,7 @@ public class Ambassador implements Card{
      * @param input Scanner Object.
      * @return Int. Returns an integer representing which card the user chose to keep.
      */
-    public int keepCard(ArrayList<Card> choices, Scanner input){
+    private int keepCard(ArrayList<Card> choices, Scanner input){
         int userChoice = 0;
         while (!(userChoice >= 1 && userChoice <= choices.size())){
             try{
